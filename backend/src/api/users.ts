@@ -30,7 +30,7 @@ router.get("/:email", async (req: any, res: any) => {
         const userDoc = await db.collection("users").doc(email).get();
 
         if (!userDoc.exists) {
-            return res.status(404).json({ message: "User not found" });
+            return res.status(404).json({ message: "Usuario con email " + email + " no encontrado" });
         }
 
         res.json({ id: userDoc.id, ...userDoc.data() });
