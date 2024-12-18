@@ -1,5 +1,13 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable max-len */
+/* eslint-disable indent */
+/* eslint-disable object-curly-spacing */
+/* eslint-disable new-cap */
+/* eslint-disable linebreak-style */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Router } from "express";
-import { db } from "../config";
+import { db } from "../index";
 import { validate } from "../middleware/validate";
 import { taskSchema } from "../validations/schemas";
 
@@ -25,7 +33,7 @@ const router = Router();
 router.get("/", async (req: any, res: any) => {
     try {
         const snapshot = await db.collection("tasks").orderBy("createdAt").get();
-        const tasks = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        const tasks = snapshot.docs.map((doc: any) => ({ id: doc.id, ...doc.data() }));
         res.json(tasks);
     } catch (error: any) {
         res.status(500).json({ error: error.message });

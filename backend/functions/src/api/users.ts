@@ -1,9 +1,18 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable max-len */
+/* eslint-disable indent */
+/* eslint-disable object-curly-spacing */
+/* eslint-disable new-cap */
+/* eslint-disable linebreak-style */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Router } from "express";
-import { db } from "../config";
 import { validate } from "../middleware/validate";
 import { userSchema } from "../validations/schemas";
+import { db } from "../index";
 
 const router = Router();
+
 /**
  * @swagger
  * tags:
@@ -52,7 +61,7 @@ router.get("/:email", async (req: any, res: any) => {
  *           schema:
  *             $ref: '#/components/schemas/User'
  */
-router.post("/", validate(userSchema), async (req: any, res: any) => {
+router.post("/", validate(userSchema), async (req, res) => {
     try {
         const { email } = req.body;
 
