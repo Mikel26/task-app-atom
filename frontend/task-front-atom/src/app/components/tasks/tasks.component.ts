@@ -128,4 +128,8 @@ export class TasksComponent implements OnInit {
     this.taskForm.reset();
   }
 
+  logout() {
+    this.router.navigate(['/']);
+  }
+
 }

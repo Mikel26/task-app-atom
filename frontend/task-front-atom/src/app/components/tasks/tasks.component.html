@@ -3,6 +3,11 @@
     <mat-card class="form-section">
         <mat-card-header>
             <mat-card-title>Nueva Tarea</mat-card-title>
+            <div class="logout-button">
+                <button mat-icon-button (click)="logout()">
+                    <mat-icon>logout</mat-icon>
+                </button>
+            </div>
         </mat-card-header>
 
         <mat-card-content>
@@ -27,13 +32,15 @@
 
                 <div class="form-actions">
                     <mat-checkbox formControlName="completed">Completada</mat-checkbox>
-                    <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">
-                        {{ selectedTask ? 'Actualizar' : 'Agregar' }} Tarea
-                    </button>
-                    <button mat-button (click)="cancelEdit()" *ngIf="selectedTask">Cancelar</button>
                 </div>
             </form>
         </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">
+                {{ selectedTask ? 'Actualizar' : 'Agregar' }} Tarea
+            </button>
+            <button mat-button (click)="cancelEdit()" *ngIf="selectedTask">Cancelar</button>
+        </mat-card-actions>
     </mat-card>
 
     <!-- Sección de la lista de tareas -->
