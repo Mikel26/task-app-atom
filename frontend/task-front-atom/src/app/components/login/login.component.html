@@ -1,0 +1,23 @@
+<div class="login-container">
+    <!-- Logo o Título -->
+    <div class="logo">
+        <img src="favicon.ico" alt="Logo" />
+        <h1>Tasks App Atom</h1>
+    </div>
+
+    <!-- Subtítulo -->
+    <h2 class="subtitle">Inicia sesión para acceder a tus tareas</h2>
+
+    <!-- Formulario -->
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <label for="email" class="mat-label">Correo electrónico</label>
+        <input type="email" id="email" formControlName="email" placeholder="ejemplo@correo.com" required />
+
+        <button type="submit" mat-raised-button color="primary">Iniciar sesión</button>
+    </form>
+
+    <!-- Pie de página -->
+    <div class="footer">
+        <p>¿No tienes cuenta? <a href="#">Regístrate aquí</a></p>
+    </div>
+</div>

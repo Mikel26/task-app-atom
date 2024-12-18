@@ -1,0 +1,110 @@
+/* Estilo general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    /* Asegura que el cuerpo ocupe toda la pantalla */
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f7fa;
+}
+
+/* Contenedor principal */
+.login-container {
+    justify-self: center;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    margin-top: 100px;
+}
+
+/* Logo y título */
+.logo img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: #333333;
+}
+
+/* Subtítulo */
+.subtitle {
+    font-size: 1rem;
+    color: #555555;
+    margin-bottom: 20px;
+}
+
+/* Formulario */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-form label {
+    text-align: left;
+    font-weight: bold;
+    color: #333333;
+}
+
+.login-form input {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.login-form input:focus {
+    border-color: #3f51b5;
+}
+
+.login-form button {
+    padding: 10px;
+    background-color: #3f51b5;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+    background-color: #303f9f;
+}
+
+/* Pie de página */
+.footer {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #555555;
+}
+
+.footer a {
+    color: #3f51b5;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

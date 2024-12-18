@@ -1,0 +1,70 @@
+<div class="tasks-container">
+    <!-- Sección del formulario -->
+    <mat-card class="form-section">
+        <mat-card-header>
+            <mat-card-title>Nueva Tarea</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Título</mat-label>
+                    <input matInput formControlName="title" placeholder="Título" />
+                    <mat-error *ngIf="taskForm.get('title')?.hasError('required')">El título es obligatorio</mat-error>
+                    <mat-error *ngIf="taskForm.get('title')?.hasError('minlength')">Mínimo 3 caracteres</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Descripción</mat-label>
+                    <textarea matInput formControlName="description" rows="3"></textarea>
+                    <mat-error *ngIf="taskForm.get('description')?.hasError('required')">
+                        La descripción es obligatoria
+                    </mat-error>
+                    <mat-error *ngIf="taskForm.get('description')?.hasError('maxlength')">
+                        Máximo 255 caracteres
+                    </mat-error>
+                </mat-form-field>
+
+                <div class="form-actions">
+                    <mat-checkbox formControlName="completed">Completada</mat-checkbox>
+                    <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">
+                        {{ selectedTask ? 'Actualizar' : 'Agregar' }} Tarea
+                    </button>
+                    <button mat-button (click)="cancelEdit()" *ngIf="selectedTask">Cancelar</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+
+    <!-- Sección de la lista de tareas -->
+    <mat-card class="tasks-list-section">
+        <mat-card-header>
+            <mat-card-title>Mis Tareas</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="tasks-grid">
+                <mat-card class="task-item" *ngFor="let task of tasks">
+                    <mat-card-content>
+                        <div class="task-header">
+                            <mat-checkbox [(ngModel)]="task.completed" (change)="toggleTaskStatus(task)"
+                                [class.completed]="task.completed">
+                                {{ task.title }}
+                            </mat-checkbox>
+                            <div class="task-actions">
+                                <button mat-icon-button (click)="editTask(task)">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <button mat-icon-button color="warn" (click)="deleteTask(task.id)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="task-description">{{ task.description }}</p>
+                        <small class="task-date">Creado: {{ task.createdAt }}</small>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
