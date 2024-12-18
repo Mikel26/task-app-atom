@@ -33,14 +33,15 @@
                 <div class="form-actions">
                     <mat-checkbox formControlName="completed">Completada</mat-checkbox>
                 </div>
+
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">
+                        {{ selectedTask ? 'Actualizar' : 'Agregar' }} Tarea
+                    </button>
+                    <button mat-button (click)="cancelEdit()" *ngIf="selectedTask">Cancelar</button>
+                </mat-card-actions>
             </form>
         </mat-card-content>
-        <mat-card-actions>
-            <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">
-                {{ selectedTask ? 'Actualizar' : 'Agregar' }} Tarea
-            </button>
-            <button mat-button (click)="cancelEdit()" *ngIf="selectedTask">Cancelar</button>
-        </mat-card-actions>
     </mat-card>
 
     <!-- Sección de la lista de tareas -->
